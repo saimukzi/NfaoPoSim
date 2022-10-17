@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
+
+[node name="PolicePlayer" type="Node2D"]
+
+[node name="Char" parent="." instance=ExtResource( 1 )]
+
+[node name="Base" parent="Char" index="0"]
+modulate = Color( 0.498039, 0.74902, 1, 1 )
+
+[node name="EyeL" parent="Char" index="1"]
+modulate = Color( 0, 0.247059, 0.498039, 1 )
+
+[node name="EyeR" parent="Char" index="2"]
+modulate = Color( 0, 0.247059, 0.498039, 1 )
+
+[editable path="Char"]
