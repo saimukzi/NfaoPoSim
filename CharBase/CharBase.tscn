@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://common/circle256.png" type="Texture" id=2]
+[ext_resource path="res://common/circle-fill-256.png" type="Texture" id=2]
 
 [node name="CharBase" type="Node2D"]
 scale = Vector2( 0.195, 0.195 )
