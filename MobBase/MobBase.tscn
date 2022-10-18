@@ -2,6 +2,6 @@
 
 [ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
 
-[node name="NormalMob" type="Node2D"]
+[node name="MobBase" type="Node2D"]
 
 [node name="CharBase" parent="." instance=ExtResource( 1 )]
