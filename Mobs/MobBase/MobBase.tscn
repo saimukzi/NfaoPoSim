@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Mobs/MobBase/MobBase.gd" type="Script" id=2]
+[ext_resource path="res://common/circle-stroke-2-256.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
@@ -18,4 +19,10 @@ gravity = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatDetection"]
 shape = SubResource( 1 )
 
+[node name="EatDetectionDisplay" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.234, 0.234 )
+texture = ExtResource( 3 )
+
 [connection signal="area_entered" from="EatDetection" to="." method="_on_EatDetection_area_entered"]
+[connection signal="area_exited" from="EatDetection" to="." method="_on_EatDetection_area_exited"]
