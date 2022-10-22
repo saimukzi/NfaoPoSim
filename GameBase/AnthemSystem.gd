@@ -14,8 +14,10 @@ func _on_NextStartTimer_timeout():
 	$AudioStreamPlayer.play()
 
 func _on_AudioStreamPlayer_finished():
+	print("_on_AudioStreamPlayer_finished")
+	print("_on_AudioStreamPlayer_finished")
 	start_timer()
 	emit_signal("anthem_end")
 
 func start_timer():
-	$NextStartTimer.start(rand_range(5,10))
+	$NextStartTimer.start(rand_range(3,5))
