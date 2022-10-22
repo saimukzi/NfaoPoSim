@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circle-fill-256.png-86d262c358055ec5cfcde6f2b5ed5dbb.stex"
+path="res://.import/circle-fill-256.png-c131bb42ff93e24e79ca2d04e2150f09.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/circle-fill-256.png"
-dest_files=[ "res://.import/circle-fill-256.png-86d262c358055ec5cfcde6f2b5ed5dbb.stex" ]
+source_file="res://assets/circle-fill-256.png"
+dest_files=[ "res://.import/circle-fill-256.png-c131bb42ff93e24e79ca2d04e2150f09.stex" ]
 
 [params]
 

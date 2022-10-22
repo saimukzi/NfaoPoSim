@@ -2,7 +2,7 @@
 
 [ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Mobs/MobBase/MobBase.gd" type="Script" id=2]
-[ext_resource path="res://common/circle-stroke-2-256.png" type="Texture" id=3]
+[ext_resource path="res://assets/circle-stroke-2-256.png" type="Texture" id=3]
 [ext_resource path="res://Mobs/MobBase/MobBaseCollisionDefinition.tscn" type="PackedScene" id=4]
 
 [node name="MobBase" type="Node2D"]
