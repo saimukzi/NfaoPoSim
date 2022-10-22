@@ -10,7 +10,7 @@ func _physics_process(delta):
 			timeout += rand_range(0,2)
 		var process_time = min(delta, timeout)
 		if process_time > 0:
-			var move_v2 = Vector2.ONE.rotated(rotation)
+			var move_v2 = Vector2.RIGHT.rotated(rotation)
 			move_v2 *= speed
 			move_v2 *= process_time
 			position += move_v2
