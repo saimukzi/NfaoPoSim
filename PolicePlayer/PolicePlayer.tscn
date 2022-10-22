@@ -3,9 +3,7 @@
 [ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PolicePlayer/PolicePlayer.gd" type="Script" id=2]
 [ext_resource path="res://common/circle-fill-256.png" type="Texture" id=3]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 50.0
+[ext_resource path="res://PolicePlayer/PolicePlayerCollisionDefinition.tscn" type="PackedScene" id=4]
 
 [node name="PolicePlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -26,11 +24,14 @@ modulate = Color( 0, 0.247059, 0.498039, 1 )
 [node name="EyeR" parent="Char" index="2"]
 modulate = Color( 0, 0.247059, 0.498039, 1 )
 
-[node name="EatMobArea" type="Area2D" parent="."]
-gravity_vec = Vector2( 0, 0 )
-gravity = 0.0
+[node name="PlayerEatMobDisplayCollisionLayer" parent="." instance=ExtResource( 4 )]
+collision_mask = 0
+monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EatMobArea"]
-shape = SubResource( 1 )
+[node name="PlayerEatMobExecuteCollisionLayer" parent="." instance=ExtResource( 4 )]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [editable path="Char"]

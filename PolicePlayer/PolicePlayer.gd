@@ -22,3 +22,9 @@ func _physics_process(delta):
 
 	if move_vector.length() > 0:
 		rotation = move_vector.angle()
+
+	# process eat
+	if Input.is_action_pressed("game_eat"):
+		$PlayerEatMobExecuteCollisionLayer.monitorable = true
+	else:
+		$PlayerEatMobExecuteCollisionLayer.monitorable = false
