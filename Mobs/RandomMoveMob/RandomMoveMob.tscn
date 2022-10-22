@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Mobs/MobBase/MobBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Mobs/RandomMoveMob/RandomMoveMob.gd" type="Script" id=2]
+
+[node name="RandomMoveMob" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CharBase" parent="." index="0"]
+modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
