@@ -19,4 +19,4 @@ func _on_AudioStreamPlayer_finished():
 	emit_signal("anthem_end")
 
 func start_timer():
-	$NextStartTimer.start(rand_range(5,10))
+	$NextStartTimer.start(rand_range(1,2))

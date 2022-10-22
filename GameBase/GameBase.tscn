@@ -13,6 +13,7 @@ anthem_system = NodePath("AnthemSystem")
 
 [node name="PolicePlayer" parent="Map" instance=ExtResource( 6 )]
 position = Vector2( 489, 360 )
+game_base = NodePath("../..")
 
 [node name="AnthemSystem" type="Node" parent="."]
 script = ExtResource( 1 )
