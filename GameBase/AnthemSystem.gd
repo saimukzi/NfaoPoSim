@@ -1,11 +1,13 @@
 extends Node
 
+export(bool) var auto_play = true
 var playing setget ,playing_get
 
 signal anthem_end()
 
 func _ready():
-	start_timer()
+	if auto_play:
+		start_timer()
 
 func playing_get():
 	return $AudioStreamPlayer.playing
