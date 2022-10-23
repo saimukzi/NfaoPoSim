@@ -28,6 +28,9 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Map/LeftFlag/Path2D"]
 position = Vector2( 81, -50 )
+rotate = false
+cubic_interp = false
+loop = false
 
 [node name="Flag" type="Node2D" parent="Map/LeftFlag/Path2D/PathFollow2D"]
 
