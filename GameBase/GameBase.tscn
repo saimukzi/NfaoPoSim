@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameBase/AnthemSystem.gd" type="Script" id=1]
 [ext_resource path="res://assets/anthem.ogg" type="AudioStream" id=2]
 [ext_resource path="res://GameBase/GameBase.gd" type="Script" id=3]
+[ext_resource path="res://GameBase/FlagControl.gd" type="Script" id=4]
 [ext_resource path="res://PolicePlayer/PolicePlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
@@ -23,18 +24,21 @@ game_base = NodePath("../..")
 [node name="LeftFlag" type="Node2D" parent="Map"]
 position = Vector2( 0, 720 )
 
-[node name="Path2D" type="Path2D" parent="Map/LeftFlag"]
+[node name="FlagPath" type="Path2D" parent="Map/LeftFlag"]
 curve = SubResource( 1 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Map/LeftFlag/Path2D"]
-position = Vector2( 81, -50 )
+[node name="FlagControl" type="PathFollow2D" parent="Map/LeftFlag/FlagPath"]
+position = Vector2( 81, -670 )
+offset = 620.592
 rotate = false
 cubic_interp = false
 loop = false
+script = ExtResource( 4 )
+anthem_system = NodePath("../../../../AnthemSystem")
 
-[node name="Flag" type="Node2D" parent="Map/LeftFlag/Path2D/PathFollow2D"]
+[node name="Flag" type="Node2D" parent="Map/LeftFlag/FlagPath/FlagControl"]
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/LeftFlag/Path2D/PathFollow2D/Flag"]
+[node name="Polygon2D" type="Polygon2D" parent="Map/LeftFlag/FlagPath/FlagControl/Flag"]
 polygon = PoolVector2Array( -81, -50, 81, -50, 81, 50, -81, 50 )
 
 [node name="AnthemSystem" type="Node" parent="."]

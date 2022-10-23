@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Object",
+"class": "Global",
+"language": "GDScript",
+"path": "res://global/Global.gd"
+}, {
 "base": "Reference",
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://commons/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Global": "",
 "StateMachine": ""
 }
 
