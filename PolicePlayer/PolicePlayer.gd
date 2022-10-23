@@ -35,11 +35,10 @@ func _physics_process(delta):
 		$PlayerEatMobExecuteCollisionLayer.monitorable = false
 
 func is_anthem_playing():
-	var anthem_system = anthem_system_nc.get_node()
-	if anthem_system == null:
+	if anthem_system_node == null:
 		return false
-	return anthem_system.get("playing")
+	return anthem_system_node.get("playing")
 
 export(NodePath) var game_base
-var game_base_nc = NodeCacheBuilder.new().subject(self).property("game_base").build()
-var anthem_system_nc = NodeCacheBuilder.new().subject_cache(game_base_nc).property("anthem_system").build()
+onready var game_base_node = get_node(game_base)
+onready var anthem_system_node = game_base_node.get_node(game_base_node.get("anthem_system"))

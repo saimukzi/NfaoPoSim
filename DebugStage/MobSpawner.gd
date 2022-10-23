@@ -1,7 +1,7 @@
 extends Node2D
 
 export(NodePath) var map
-#var mob_base_scene : PackedScene
+onready var map_node = get_node(map)
 var random_move_mob_scene : PackedScene
 
 func _ready():
@@ -13,4 +13,4 @@ func _physics_process(delta):
 #		var mob_instance = mob_base_scene.instance() as Node2D
 		var mob_instance = random_move_mob_scene.instance() as Node2D
 		mob_instance.position = position
-		get_node(map).add_child(mob_instance)
+		map_node.add_child(mob_instance)
