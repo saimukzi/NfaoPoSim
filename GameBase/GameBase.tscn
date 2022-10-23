@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameBase/AnthemSystem.gd" type="Script" id=1]
 [ext_resource path="res://assets/anthem.ogg" type="AudioStream" id=2]
 [ext_resource path="res://GameBase/GameBase.gd" type="Script" id=3]
 [ext_resource path="res://PolicePlayer/PolicePlayer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 81, -50, 0, 0, 0, 0, 81, -670 )
+}
 
 [node name="GameBase" type="Node"]
 script = ExtResource( 3 )
@@ -14,6 +19,20 @@ anthem_system = NodePath("AnthemSystem")
 [node name="PolicePlayer" parent="Map" instance=ExtResource( 6 )]
 position = Vector2( 640, 360 )
 game_base = NodePath("../..")
+
+[node name="LeftFlag" type="Node2D" parent="Map"]
+position = Vector2( 0, 720 )
+
+[node name="Path2D" type="Path2D" parent="Map/LeftFlag"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/LeftFlag/Path2D"]
+position = Vector2( 81, -50 )
+
+[node name="Flag" type="Node2D" parent="Map/LeftFlag/Path2D/PathFollow2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/LeftFlag/Path2D/PathFollow2D/Flag"]
+polygon = PoolVector2Array( -81, -50, 81, -50, 81, 50, -81, 50 )
 
 [node name="AnthemSystem" type="Node" parent="."]
 script = ExtResource( 1 )
