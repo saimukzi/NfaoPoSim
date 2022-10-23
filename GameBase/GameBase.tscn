@@ -3,7 +3,7 @@
 [ext_resource path="res://GameBase/AnthemSystem.gd" type="Script" id=1]
 [ext_resource path="res://assets/anthem.ogg" type="AudioStream" id=2]
 [ext_resource path="res://GameBase/GameBase.gd" type="Script" id=3]
-[ext_resource path="res://GameBase/FlagControl.gd" type="Script" id=4]
+[ext_resource path="res://GameBase/Flag.gd" type="Script" id=4]
 [ext_resource path="res://PolicePlayer/PolicePlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
@@ -23,6 +23,8 @@ game_base = NodePath("../..")
 
 [node name="LeftFlag" type="Node2D" parent="Map"]
 position = Vector2( 0, 720 )
+script = ExtResource( 4 )
+anthem_system = NodePath("../../AnthemSystem")
 
 [node name="FlagPath" type="Path2D" parent="Map/LeftFlag"]
 curve = SubResource( 1 )
@@ -33,8 +35,6 @@ offset = 620.592
 rotate = false
 cubic_interp = false
 loop = false
-script = ExtResource( 4 )
-anthem_system = NodePath("../../../../AnthemSystem")
 
 [node name="Flag" type="Node2D" parent="Map/LeftFlag/FlagPath/FlagControl"]
 
