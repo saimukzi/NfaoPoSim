@@ -7,6 +7,7 @@
 
 [node name="PolicePlayer" type="Node2D"]
 script = ExtResource( 2 )
+game_base = null
 
 [node name="EatMobAreaDisplay" type="Sprite" parent="."]
 modulate = Color( 0.498039, 0.74902, 1, 0.247059 )

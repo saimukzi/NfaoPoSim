@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "NodeCacheBuilder",
+"language": "GDScript",
+"path": "res://commons/NodeCacheBuilder.gd"
+} ]
+_global_script_class_icons={
+"NodeCacheBuilder": ""
+}
+
 [application]
 
 config/name="NfaoPoSim"
