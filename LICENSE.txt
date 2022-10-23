@@ -1,0 +1,15 @@
+Unless specified, all materials in this project are under DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE.
+
+===
+
+assets/anthem.mid
+- Created by MidiEditor. http://www.midieditor.org/
+- Note source: https://www.mfiles.co.uk/scores/london-bridge-is-falling-down.htm
+
+assets/anthem.ogg
+- Created by Zamzar. https://www.zamzar.com/convert/midi-to-ogg/
+- MIDI source: assets/anthem.mid
+
+assets/London_Bridge_Is_Falling_Down.ogg (removed)
+- https://commons.wikimedia.org/wiki/File:London_Bridge_Is_Falling_Down.ogg
+- CambridgeBayWeather, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
