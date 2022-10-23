@@ -40,9 +40,8 @@ script = ExtResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnthemSystem"]
 stream = ExtResource( 2 )
 
-[node name="NextStartTimer" type="Timer" parent="AnthemSystem"]
+[node name="Timer" type="Timer" parent="AnthemSystem"]
 one_shot = true
 
-[connection signal="anthem_end" from="AnthemSystem" to="." method="_on_AnthemSystem_anthem_end"]
 [connection signal="finished" from="AnthemSystem/AudioStreamPlayer" to="AnthemSystem" method="_on_AudioStreamPlayer_finished"]
-[connection signal="timeout" from="AnthemSystem/NextStartTimer" to="AnthemSystem" method="_on_NextStartTimer_timeout"]
+[connection signal="timeout" from="AnthemSystem/Timer" to="AnthemSystem" method="_on_Timer_timeout"]

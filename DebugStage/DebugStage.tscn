@@ -32,7 +32,4 @@ text = "static"
 align = 1
 valign = 1
 
-[node name="AnthemSystem" parent="Game" index="1"]
-auto_play = false
-
 [editable path="Game"]
