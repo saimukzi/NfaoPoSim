@@ -54,11 +54,11 @@ class Idle extends MyState:
 		anthem_system.timer.start(anthem_system.rand.randf_range(anthem_system.idle_sec_min,anthem_system.idle_sec_max))
 	func _on_Timer_timeout():
 		if anthem_system.auto_play:
-			set_state(LeftFlagDown.new())
+			set_state(FlagDown.new())
 		else:
 			set_state(Stop.new())
 
-class LeftFlagDown extends MyState:
+class FlagDown extends MyState:
 	var flag_node
 	func start():
 		var flag_node_ary = anthem_system.flag_node_ary
@@ -69,11 +69,11 @@ class LeftFlagDown extends MyState:
 		ret = clamp(ret,0,1)
 		flag_node.update_flag(ret)
 	func _on_Timer_timeout():
-		set_state(LeftFlagUp.new(flag_node))
+		set_state(FlagUp.new(flag_node))
 	func end():
 		flag_node.update_flag(0)
 
-class LeftFlagUp extends MyState:
+class FlagUp extends MyState:
 	var flag_node
 	func _init(flag_node).():
 		self.flag_node = flag_node
