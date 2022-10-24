@@ -17,12 +17,15 @@ signal anthem_end()
 
 func _ready():
 	if auto_play:
-		state_machine.set_state(Idle.new())
+		state_machine.set_next_state(Idle.new())
 	else:
-		state_machine.set_state(Stop.new())
+		state_machine.set_next_state(Stop.new())
 
 func reg_flag(flag_node):
 	flag_node_ary.append(flag_node)
+
+func _physics_process(_delta):
+	state_machine.tick()
 
 func _process(delta):
 	state()._process(delta)
@@ -54,9 +57,9 @@ class Idle extends MyState:
 		anthem_system.timer.start(anthem_system.rand.randf_range(anthem_system.idle_sec_min,anthem_system.idle_sec_max))
 	func _on_Timer_timeout():
 		if anthem_system.auto_play:
-			set_state(FlagDown.new())
+			set_next_state(FlagDown.new())
 		else:
-			set_state(Stop.new())
+			set_next_state(Stop.new())
 
 class FlagDown extends MyState:
 	var flag_node
@@ -69,7 +72,7 @@ class FlagDown extends MyState:
 		ret = clamp(ret,0,1)
 		flag_node.update_flag(ret)
 	func _on_Timer_timeout():
-		set_state(FlagUp.new(flag_node))
+		set_next_state(FlagUp.new(flag_node))
 	func end():
 		flag_node.update_flag(0)
 
@@ -85,7 +88,7 @@ class FlagUp extends MyState:
 		ret = clamp(ret,0,1)
 		flag_node.update_flag(ret)
 	func _on_AudioStreamPlayer_finished():
-		set_state(Idle.new())
+		set_next_state(Idle.new())
 	func is_playing():
 		return true
 	func end():
