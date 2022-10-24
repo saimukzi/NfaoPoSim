@@ -30,6 +30,10 @@ config/name="NfaoPoSim"
 run/main_scene="res://DebugStage/DebugStage.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Runtime="*res://commons/Runtime.gd"
+
 [display]
 
 window/size/width=1280

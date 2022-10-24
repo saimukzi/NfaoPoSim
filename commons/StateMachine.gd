@@ -8,7 +8,7 @@ func set_state(new_state):
 	if new_state == null:
 		state = default_state()
 	else:
-		state = new_state.new()
+		state = new_state
 	state.state_machine = self
 	state.init()
 	state.start()
