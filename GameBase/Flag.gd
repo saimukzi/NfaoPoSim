@@ -1,7 +1,5 @@
 extends Node2D
 
-signal flag_done()
-
 export(NodePath) var anthem_system
 onready var anthem_system_node = get_node(anthem_system)
 
@@ -61,7 +59,7 @@ class FlagUp extends MyState:
 	func end():
 		self.player.seek(0)
 		flag_node.update_flag(1)
-		flag_node.emit_signal("flag_done")
+		flag_node.anthem_system_node.emit_signal("flag_done", self)
 
 class MyStateMachine extends StateMachine:
 	var flag_node
