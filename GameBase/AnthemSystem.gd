@@ -19,10 +19,13 @@ signal anthem_end()
 func _ready():
 	self.connect("flag_done",self,"_on_flag_done")
 	if auto_play:
-		$Timer.start(rand.randf_range(idle_sec_min,idle_sec_max))
+		schedule_next_flag()
 
 func reg_flag(flag_node):
 	flag_node_ary.append(flag_node)
+
+func schedule_next_flag():
+	$Timer.start(rand.randf_range(idle_sec_min,idle_sec_max)-flag_prepare_sec)
 
 func _on_Timer_timeout():
 	var flag_node = flag_node_ary[rand.randi_range(0,flag_node_ary.size()-1)]
@@ -30,4 +33,4 @@ func _on_Timer_timeout():
 
 func _on_flag_done(flag_node):
 	if auto_play:
-		$Timer.start(rand.randf_range(idle_sec_min,idle_sec_max))
+		schedule_next_flag()
