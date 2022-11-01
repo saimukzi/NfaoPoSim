@@ -5,6 +5,7 @@
 
 [node name="RandomMoveMob" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+anthem_system = NodePath("")
 
 [node name="CharBase" parent="." index="0"]
 modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
