@@ -1,5 +1,6 @@
 extends Node
 
+signal flag_start(flag_node)
 signal flag_done(flag_node)
 
 export(bool) var auto_play = true

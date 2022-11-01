@@ -49,6 +49,7 @@ class FlagUp extends MyState:
 	func start():
 		self.player = flag_node.get_node('AudioStreamPlayer2D')
 		self.player.play()
+		flag_node.anthem_system_node.emit_signal("flag_start", self)
 	func _process(_delta):
 		var ret = self.player.get_playback_position()
 		ret /= player.stream.get_length()
