@@ -23,3 +23,11 @@ func _physics_process(delta):
 			position += move_v2
 			delta -= process_time
 			timeout -= process_time
+
+func _on_flag_start(flag_node):
+	print('_on_flag_start')
+	pass
+
+func _on_flag_done(flag_node):
+	print('_on_flag_done')
+	pass
