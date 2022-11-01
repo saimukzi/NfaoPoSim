@@ -1,7 +1,14 @@
 extends "res://Mobs/MobBase/MobBase.gd"
 
+export(NodePath) var anthem_system
+onready var anthem_system_node = get_node(anthem_system)
+
 var speed = 50
 var timeout = 0.0
+
+func _ready():
+	anthem_system_node.connect('flag_start',self,'_on_flag_start')
+	anthem_system_node.connect('flag_done',self,'_on_flag_done')
 
 func _physics_process(delta):
 	while delta > 0:

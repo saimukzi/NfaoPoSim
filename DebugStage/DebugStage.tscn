@@ -15,6 +15,7 @@ position = Vector2( 489, 360 )
 position = Vector2( 791, 360 )
 script = ExtResource( 3 )
 map = NodePath("../../..")
+anthem_system = NodePath("../../AnthemSystem")
 
 [node name="Circle-fill-256" type="Sprite" parent="Game/Map/MobSpawner"]
 modulate = Color( 1, 1, 0, 0.247059 )
