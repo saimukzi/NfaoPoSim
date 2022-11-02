@@ -55,4 +55,4 @@ class MyStateMachine extends StateMachine:
 
 onready var state_machine = MyStateMachine.new(self)
 func state():
-	return state_machine.state
+	return state_machine.state()

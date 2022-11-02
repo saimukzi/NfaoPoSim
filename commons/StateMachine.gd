@@ -2,13 +2,8 @@ class_name StateMachine
 
 extends Reference
 
-var state
+var _state
 var next_state
-
-func _init():
-	state = default_state()
-	state.state_machine_wref = weakref(self)
-	state.init()
 
 func set_next_state(new_state):
 	var old_next_state_exist = (self.next_state!=null)
@@ -16,19 +11,26 @@ func set_next_state(new_state):
 	if not old_next_state_exist:
 		self.call_deferred("exec_change_state")
 
+func state():
+	if _state == null:
+		_state = default_state()
+		_state.state_machine_wref = weakref(self)
+		_state.init()
+	return _state
+
 func default_state():
 	return State.new()
 
 func exec_change_state():
 	if next_state == null: return
-	if state != null:
-		state.end()
-		state = null
-	state = next_state
+	if _state != null:
+		_state.end()
+		_state = null
+	_state = next_state
 	next_state = null
-	state.state_machine_wref = weakref(self)
-	state.init()
-	state.start()
+	_state.state_machine_wref = weakref(self)
+	_state.init()
+	_state.start()
 
 class State extends Reference:
 	var state_machine_wref
