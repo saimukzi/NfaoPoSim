@@ -11,9 +11,10 @@ func _ready():
 	state_machine.set_next_state(NormalState.new())
 
 class MyState extends StateMachine.State:
-	var me
+	var me_wref
+	func get_me(): return me_wref.get_ref()
 	func init():
-		self.me = state_machine.me
+		self.me_wref = weakref(state_machine_wref.get_ref().me_wref.get_ref())
 	func _physics_process(delta): pass
 	func _on_flag_start(flag_node): pass
 	func _on_flag_done(flag_node): pass
@@ -27,6 +28,7 @@ func _on_flag_done(flag_node): state()._on_flag_done(flag_node)
 class NormalState extends MyState:
 	var rotate_timeout = 0
 	func _physics_process(delta):
+		var me = get_me()
 		while delta > 0:
 			if rotate_timeout <= 0:
 				me.rotation = rand_range(0,2*PI)
@@ -40,18 +42,18 @@ class NormalState extends MyState:
 				delta -= process_time
 				rotate_timeout -= process_time
 	func _on_flag_start(flag_node):
-		state_machine.set_next_state(FlagState.new())
+		set_next_state(FlagState.new())
 
 class FlagState extends MyState:
 	func start():
-		me.rotation = PI
+		get_me().rotation = PI
 	func _on_flag_done(flag_node):
-		state_machine.set_next_state(NormalState.new())
+		set_next_state(NormalState.new())
 
 class MyStateMachine extends StateMachine:
-	var me
-	func _init(me):
-		self.me = me
+	var me_wref
+	func _init(me).():
+		self.me_wref = weakref(me)
 	func default_state():
 		return MyState.new()
 
