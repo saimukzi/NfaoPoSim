@@ -12,6 +12,9 @@ func update_flag(height):
 func play():
 	state_machine.set_next_state(FlagPrepare.new())
 
+func flag_time_remain():
+	return state().flag_time_remain()
+
 func _on_PrepareTimer_timeout():
 	state()._on_PrepareTimer_timeout()
 
@@ -27,6 +30,7 @@ class MyState extends StateMachine.State:
 	func _process(delta): pass
 	func _on_PrepareTimer_timeout(): pass
 	func _on_AudioStreamPlayer2D_finished(): pass
+	func flag_time_remain(): return 0
 
 class Idle extends MyState:
 	pass
@@ -48,6 +52,8 @@ class FlagUp extends MyState:
 		ret /= player.stream.get_length()
 		ret = clamp(ret,0,1)
 		me.update_flag(ret)
+	func flag_time_remain():
+		return player.stream.get_length()-player.get_playback_position()
 	func _on_AudioStreamPlayer2D_finished():
 		set_next_state(Idle.new())
 	func end():

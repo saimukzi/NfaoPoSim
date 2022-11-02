@@ -3,7 +3,11 @@ extends "res://Mobs/MobBase/MobBase.gd"
 export(NodePath) var anthem_system
 onready var anthem_system_node = get_node(anthem_system)
 
+onready var rand = $"/root/Runtime".rand
+
 var speed = 50
+var guilty_sec = 1
+var guilty_chance = 0.01
 
 func _ready():
 	anthem_system_node.connect('flag_start',self,'_on_flag_start')
@@ -38,13 +42,30 @@ class NormalState extends MyState:
 				delta -= process_time
 				rotate_timeout -= process_time
 	func _on_flag_start(flag_node):
-		set_next_state(FlagState.new())
+		set_next_state(FlagState.new(flag_node))
 
 class FlagState extends MyState:
+	var flag_node
+	func _init(flag_node): self.flag_node = flag_node
 	func start():
 		me.rotation = PI
+	func _physics_process(delta):
+		var flag_time_remain = flag_node.flag_time_remain()
+		if flag_time_remain < me.guilty_sec: return
+		if me.rand.randf() < me.guilty_chance:
+			set_next_state(GuiltyState.new(flag_node))
 	func _on_flag_done(flag_node):
 		set_next_state(NormalState.new())
+
+class GuiltyState extends MyState:
+	var flag_node
+	func _init(flag_node): self.flag_node = flag_node
+	func start():
+		run()
+	func run():
+		me.rotation = 0
+		yield(me.get_tree().create_timer(me.guilty_sec), "timeout")
+		set_next_state(FlagState.new(flag_node))
 
 class MyStateMachine extends StateMachine:
 	var me
