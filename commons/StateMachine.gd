@@ -8,6 +8,7 @@ var next_state
 func _init():
 	state = default_state()
 	state.state_machine_wref = weakref(self)
+	state.init()
 
 func set_next_state(new_state):
 	self.next_state = new_state
