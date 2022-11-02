@@ -18,9 +18,6 @@ func _on_PrepareTimer_timeout():
 func _on_AudioStreamPlayer2D_finished():
 	state()._on_AudioStreamPlayer2D_finished()
 
-func _physics_process(_delta):
-	state_machine.tick()
-
 func _process(delta):
 	state()._process(delta)
 
