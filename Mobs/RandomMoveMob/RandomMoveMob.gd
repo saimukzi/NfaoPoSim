@@ -11,7 +11,7 @@ func _ready():
 	state_machine.set_next_state(NormalState.new())
 
 class MyState extends StateMachine.State:
-	func get_me(): return get_state_machine().get_me()
+	func get_me(): return get_state_machine().me
 	func _physics_process(delta): pass
 	func _on_flag_start(flag_node): pass
 	func _on_flag_done(flag_node): pass
@@ -47,11 +47,9 @@ class FlagState extends MyState:
 		set_next_state(NormalState.new())
 
 class MyStateMachine extends StateMachine:
-	var me_wref
-	func get_me():
-		return me_wref.get_ref()
+	var me
 	func _init(me).():
-		self.me_wref = weakref(me)
+		self.me = me
 	func default_state():
 		return MyState.new()
 
