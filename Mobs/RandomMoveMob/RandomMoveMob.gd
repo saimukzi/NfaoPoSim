@@ -74,6 +74,8 @@ class GuiltyState extends MyState:
 		me.rotation = 0
 		yield(me.get_tree().create_timer(me.guilty_sec), "timeout")
 		set_next_state(FlagState.new(flag_node))
+	func _on_flag_done(flag_node):
+		set_next_state(NormalState.new())
 
 class MyStateMachine extends StateMachine:
 	var me
