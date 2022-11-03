@@ -3,6 +3,8 @@ extends Node2D
 export(NodePath) var anthem_system
 onready var anthem_system_node = get_node(anthem_system)
 
+onready var player = $AudioStreamPlayer2D
+
 func _ready():
 	anthem_system_node.reg_flag(self)
 
@@ -12,8 +14,9 @@ func update_flag(height):
 func play():
 	state_machine.set_next_state(FlagPrepare.new())
 
-func flag_time_remain():
-	return state().flag_time_remain()
+func flag_time_remain(): return state().flag_time_remain()
+func flag_time_total(): return state().flag_time_total()
+func flag_time_done(): return state().flag_time_done()
 
 func _on_PrepareTimer_timeout():
 	state()._on_PrepareTimer_timeout()
@@ -30,7 +33,9 @@ class MyState extends StateMachine.State:
 	func _process(delta): pass
 	func _on_PrepareTimer_timeout(): pass
 	func _on_AudioStreamPlayer2D_finished(): pass
-	func flag_time_remain(): return 0
+	func flag_time_remain(): return flag_time_total()-flag_time_done()
+	func flag_time_total(): return 0
+	func flag_time_done(): return 0
 
 class Idle extends MyState:
 	pass
@@ -44,7 +49,7 @@ class FlagPrepare extends MyState:
 class FlagUp extends MyState:
 	var player
 	func start():
-		self.player = me.get_node('AudioStreamPlayer2D')
+		self.player = me.player
 		self.player.play()
 		me.anthem_system_node.emit_signal("flag_start", self)
 	func _process(_delta):
@@ -52,8 +57,10 @@ class FlagUp extends MyState:
 		ret /= player.stream.get_length()
 		ret = clamp(ret,0,1)
 		me.update_flag(ret)
-	func flag_time_remain():
-		return player.stream.get_length()-player.get_playback_position()
+	func flag_time_total():
+		return player.stream.get_length()
+	func flag_time_done():
+		return player.get_playback_position()
 	func _on_AudioStreamPlayer2D_finished():
 		set_next_state(Idle.new())
 	func end():

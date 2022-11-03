@@ -7,7 +7,7 @@ onready var rand = $"/root/Runtime".rand
 
 var speed = 50
 var guilty_sec = 1
-var guilty_chance = 0.01
+var guilty_chance = 2-Const.PHI
 
 func _ready():
 	anthem_system_node.connect('flag_start',self,'_on_flag_start')
@@ -46,13 +46,21 @@ class NormalState extends MyState:
 
 class FlagState extends MyState:
 	var flag_node
-	func _init(flag_node): self.flag_node = flag_node
+	var rand_time_total
+	var non_guilty_chance
+	func _init(flag_node):
+		self.flag_node = flag_node
+	func init():
+		.init()
+		rand_time_total = flag_node.flag_time_total() - me.guilty_sec
+		non_guilty_chance = 1-me.guilty_chance
 	func start():
 		me.rotation = PI
 	func _physics_process(delta):
 		var flag_time_remain = flag_node.flag_time_remain()
 		if flag_time_remain < me.guilty_sec: return
-		if me.rand.randf() < me.guilty_chance:
+		var non_guilty_chance_delta = pow(non_guilty_chance, delta/rand_time_total)
+		if me.rand.randf() > non_guilty_chance_delta:
 			set_next_state(GuiltyState.new(flag_node))
 	func _on_flag_done(flag_node):
 		set_next_state(NormalState.new())
