@@ -13,3 +13,6 @@ func _on_PlayerEatMobDisplayCollisionMask_area_exited(area):
 func _on_PlayerEatMobExecuteCollisionMask_area_entered(area):
 	print("_on_PlayerEatMobExecuteCollisionMask_area_entered %s"%area.name)
 	queue_free()
+
+func is_guilty():
+	return false
