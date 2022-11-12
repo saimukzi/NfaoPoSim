@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/anthem.ogg" type="AudioStream" id=1]
 [ext_resource path="res://GameBase/FlagBase.gd" type="Script" id=2]
+[ext_resource path="res://assets/flag.png" type="Texture" id=3]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -27,6 +28,9 @@ loop = false
 
 [node name="Polygon2D" type="Polygon2D" parent="FlagPath/FlagControl/Flag"]
 polygon = PoolVector2Array( -81, -50, 81, -50, 81, 50, -81, 50 )
+
+[node name="Flag" type="Sprite" parent="FlagPath/FlagControl/Flag"]
+texture = ExtResource( 3 )
 
 [node name="PrepareTimer" type="Timer" parent="."]
 

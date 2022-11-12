@@ -10,6 +10,9 @@ assets/anthem.ogg
 - Created by Zamzar. https://www.zamzar.com/convert/midi-to-ogg/
 - MIDI source: assets/anthem.mid
 
+assets/flag.png
+- Draw by saimukzi@proton.me
+
 assets/London_Bridge_Is_Falling_Down.ogg (removed)
 - https://commons.wikimedia.org/wiki/File:London_Bridge_Is_Falling_Down.ogg
 - CambridgeBayWeather, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
