@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/anthem.ogg" type="AudioStream" id=1]
+[ext_resource path="res://GameBase/Flag.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 81, -50, 0, 0, 0, 0, 81, -670 )
+}
+
+[node name="LeftFlag" type="Node2D"]
+position = Vector2( 0, 720 )
+script = ExtResource( 2 )
+anthem_system = NodePath("../../AnthemSystem")
+
+[node name="FlagPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="FlagControl" type="PathFollow2D" parent="FlagPath"]
+position = Vector2( 81, -670 )
+offset = 620.592
+rotate = false
+cubic_interp = false
+loop = false
+
+[node name="Flag" type="Node2D" parent="FlagPath/FlagControl"]
+
+[node name="Polygon2D" type="Polygon2D" parent="FlagPath/FlagControl/Flag"]
+polygon = PoolVector2Array( -81, -50, 81, -50, 81, 50, -81, 50 )
+
+[node name="PrepareTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="timeout" from="PrepareTimer" to="." method="_on_PrepareTimer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]
