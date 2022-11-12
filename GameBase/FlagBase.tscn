@@ -6,19 +6,17 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 81, -50, 0, 0, 0, 0, 81, -670 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 310, 0, 0, 0, 0, 0, -310 )
 }
 
 [node name="FlagBase" type="Node2D"]
-position = Vector2( 0, 720 )
 script = ExtResource( 2 )
-anthem_system = NodePath("../../AnthemSystem")
 
 [node name="FlagPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
 [node name="FlagControl" type="PathFollow2D" parent="FlagPath"]
-position = Vector2( 81, -670 )
+position = Vector2( 0, -310 )
 offset = 620.592
 rotate = false
 cubic_interp = false
