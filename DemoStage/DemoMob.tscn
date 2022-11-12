@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Mobs/MobBase/MobBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DemoStage/DemoMob.gd" type="Script" id=2]
+
+[node name="DemoMob" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+anthem_system = NodePath("")
+
+[node name="CharBase" parent="." index="0"]
+modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
