@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameBase/AnthemSystem.gd" type="Script" id=1]
 [ext_resource path="res://assets/Xolonium-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GameBase/GameBase.gd" type="Script" id=3]
+[ext_resource path="res://GameBase/HPLabel.gd" type="Script" id=4]
 [ext_resource path="res://PolicePlayer/PolicePlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=2]
@@ -51,5 +52,9 @@ custom_colors/font_color = Color( 1, 0.498039, 0.498039, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "8888"
 align = 2
+script = ExtResource( 4 )
+player_node_path = NodePath("../Map/PolicePlayer")
 
+[connection signal="player_guilty" from="." to="." method="_on_GameBase_player_guilty"]
+[connection signal="player_guilty" from="." to="HPLabel" method="_on_GameBase_player_guilty"]
 [connection signal="timeout" from="AnthemSystem/Timer" to="AnthemSystem" method="_on_Timer_timeout"]
