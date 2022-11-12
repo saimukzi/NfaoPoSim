@@ -16,3 +16,7 @@ assets/flag.png
 assets/London_Bridge_Is_Falling_Down.ogg (removed)
 - https://commons.wikimedia.org/wiki/File:London_Bridge_Is_Falling_Down.ogg
 - CambridgeBayWeather, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
+
+assets/Xolonium-Bold.ttf
+- https://fontlibrary.org/en/font/xolonium
+- Severin Meyer, SIL Open Font License
