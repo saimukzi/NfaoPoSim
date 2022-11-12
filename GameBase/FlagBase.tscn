@@ -9,7 +9,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 81, -50, 0, 0, 0, 0, 81, -670 )
 }
 
-[node name="LeftFlag" type="Node2D"]
+[node name="FlagBase" type="Node2D"]
 position = Vector2( 0, 720 )
 script = ExtResource( 2 )
 anthem_system = NodePath("../../AnthemSystem")
@@ -25,9 +25,6 @@ cubic_interp = false
 loop = false
 
 [node name="Flag" type="Node2D" parent="FlagPath/FlagControl"]
-
-[node name="Polygon2D" type="Polygon2D" parent="FlagPath/FlagControl/Flag"]
-polygon = PoolVector2Array( -81, -50, 81, -50, 81, 50, -81, 50 )
 
 [node name="Flag" type="Sprite" parent="FlagPath/FlagControl/Flag"]
 texture = ExtResource( 3 )
