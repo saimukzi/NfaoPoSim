@@ -13,10 +13,12 @@ var flag_node_ary = []
 
 onready var rand = $"/root/Runtime".rand
 onready var timer = $Timer
+var flag_busy = false
 
 signal anthem_end()
 
 func _ready():
+	self.connect("flag_start",self,"_on_flag_start")
 	self.connect("flag_done",self,"_on_flag_done")
 	if auto_play:
 		schedule_next_flag()
@@ -34,6 +36,13 @@ func _on_Timer_timeout():
 	var flag_node = flag_node_ary[rand.randi_range(0,flag_node_ary.size()-1)]
 	flag_node.play()
 
+func _on_flag_start(_flag_node):
+	flag_busy = true
+
 func _on_flag_done(flag_node):
+	flag_busy = false
 	if auto_play:
 		schedule_next_flag()
+
+func is_flag_busy():
+	return flag_busy

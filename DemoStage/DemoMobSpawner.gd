@@ -13,7 +13,7 @@ onready var random_move_mob_scene = preload("res://Mobs/RandomMoveMob/RandomMove
 onready var rand = $"/root/Runtime".rand
 
 func _physics_process(delta):
-	if rand.randf() < delta / SPAWN_PER_SEC:
+	if (not anthem_system_node.is_flag_busy()) and (rand.randf() < delta / SPAWN_PER_SEC):
 		spawn_mod()
 
 func spawn_mod():
