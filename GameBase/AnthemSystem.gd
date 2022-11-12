@@ -28,6 +28,9 @@ func schedule_next_flag():
 	$Timer.start(rand.randf_range(idle_sec_min,idle_sec_max)-flag_prepare_sec)
 
 func _on_Timer_timeout():
+	if flag_node_ary.size() <= 0:
+		push_warning("JFLJAYGIEC: No flag on map")
+		return
 	var flag_node = flag_node_ary[rand.randi_range(0,flag_node_ary.size()-1)]
 	flag_node.play()
 
