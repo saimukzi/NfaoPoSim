@@ -41,6 +41,8 @@ class NormalState extends MyState:
 				me.position += move_v2
 				delta -= process_time
 				rotate_timeout -= process_time
+		if me.position.y < -80:
+			me.queue_free()
 	func _on_flag_start(flag_node):
 		set_next_state(FlagState.new(flag_node))
 
