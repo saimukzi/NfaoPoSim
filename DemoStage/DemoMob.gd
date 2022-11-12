@@ -31,7 +31,7 @@ class NormalState extends MyState:
 	func _physics_process(delta):
 		while delta > 0:
 			if rotate_timeout <= 0:
-				me.rotation = rand_range(0,2*PI)
+				me.rotation = rand_range(PI*4/3,PI*5/3)
 				rotate_timeout += rand_range(1,2)
 			var process_time = min(delta, rotate_timeout)
 			if process_time > 0:
