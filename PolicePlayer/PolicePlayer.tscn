@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://CharBase/CharBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PolicePlayer/PolicePlayer.gd" type="Script" id=2]
 [ext_resource path="res://assets/circle-fill-256.png" type="Texture" id=3]
 [ext_resource path="res://PolicePlayer/PolicePlayerCollisionDefinition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sfx_coin_double1.wav" type="AudioStream" id=5]
-[ext_resource path="res://assets/sfx_sounds_interaction12.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx_sounds_interaction12.ogg" type="AudioStream" id=6]
 
 [node name="PolicePlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -40,7 +39,6 @@ monitorable = false
 one_shot = true
 
 [node name="GoodAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
 area_mask = 0
 
 [node name="BadAudio" type="AudioStreamPlayer2D" parent="."]

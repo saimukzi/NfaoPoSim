@@ -46,6 +46,7 @@ func _physics_process(delta):
 
 func _on_player_guilty(player_node):
 	if player_node != self: return
+	$BadAudio.play()
 	life -= 1
 	game_base_node.emit_signal('player_life_change',self)
 

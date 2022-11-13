@@ -3,19 +3,23 @@ Unless specified, all materials in this project are under DO WHAT THE FUCK YOU W
 ===
 
 assets/anthem.mid
-- Created by MidiEditor. http://www.midieditor.org/
-- Note source: https://www.mfiles.co.uk/scores/london-bridge-is-falling-down.htm
-
 assets/anthem.ogg
-- Created by Zamzar. https://www.zamzar.com/convert/midi-to-ogg/
-- MIDI source: assets/anthem.mid
+- Note source: https://www.mfiles.co.uk/scores/london-bridge-is-falling-down.htm
+- mid created using MidiEditor. http://www.midieditor.org/
+- mid > ogg using Zamzar. https://www.zamzar.com/convert/midi-to-ogg/
 
 assets/flag.png
-- Draw by saimukzi@proton.me
+- Draw by saimukzi@proton.me, WTFPL
 
 assets/London_Bridge_Is_Falling_Down.ogg (removed)
 - https://commons.wikimedia.org/wiki/File:London_Bridge_Is_Falling_Down.ogg
 - CambridgeBayWeather, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
+
+assets/sfx_coin_double1.ogg
+assets/sfx_sounds_interaction12.ogg
+- https://opengameart.org/content/512-sound-effects-8-bit-style
+- Juhani Junkala, CC0
+- wav > ogg using ffmpeg
 
 assets/Xolonium-Bold.ttf
 - https://fontlibrary.org/en/font/xolonium
