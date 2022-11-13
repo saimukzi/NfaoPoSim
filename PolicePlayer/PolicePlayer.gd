@@ -6,6 +6,9 @@ var score = 0
 var move_speed = 200
 const ROTATION_EPSILON = 0.0001
 
+func _ready():
+	game_base_node.connect('player_guilty',self,'_on_player_guilty')
+
 func _physics_process(delta):
 	# process move
 	var move_vector = Vector2.ZERO
@@ -32,7 +35,6 @@ func _physics_process(delta):
 		var is_guilty = ((move_vector.length() > 0) or (abs(rotation-PI) > ROTATION_EPSILON))
 		# print("flag busy!!! {ts}".format({'ts':OS.get_ticks_msec()}))
 		if is_guilty and $GuiltyCooldownTimer.is_stopped():
-			life -= 1
 			$GuiltyCooldownTimer.start()
 			game_base_node.emit_signal('player_guilty',self)
 
@@ -41,6 +43,11 @@ func _physics_process(delta):
 		$PlayerEatMobExecuteCollisionLayer.monitorable = true
 	else:
 		$PlayerEatMobExecuteCollisionLayer.monitorable = false
+
+func _on_player_guilty(player_node):
+	if player_node != self: return
+	life -= 1
+	game_base_node.emit_signal('player_life_change',self)
 
 export(NodePath) var game_base
 onready var game_base_node = get_node(game_base)

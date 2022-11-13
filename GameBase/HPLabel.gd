@@ -9,6 +9,6 @@ func update_txt():
 func _ready():
 	update_txt()
 
-func _on_GameBase_player_guilty(player_node):
+func _on_GameBase_player_life_change(player_node):
 	if player_node != self.player_node: return
 	update_txt()

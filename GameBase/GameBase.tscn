@@ -55,6 +55,5 @@ align = 2
 script = ExtResource( 4 )
 player_node_path = NodePath("../Map/PolicePlayer")
 
-[connection signal="player_guilty" from="." to="." method="_on_GameBase_player_guilty"]
-[connection signal="player_guilty" from="." to="HPLabel" method="_on_GameBase_player_guilty"]
+[connection signal="player_life_change" from="." to="HPLabel" method="_on_GameBase_player_life_change"]
 [connection signal="timeout" from="AnthemSystem/Timer" to="AnthemSystem" method="_on_Timer_timeout"]
