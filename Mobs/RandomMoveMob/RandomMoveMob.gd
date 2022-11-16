@@ -10,6 +10,7 @@ var guilty_sec = 1
 var guilty_chance = 2-Const.PHI
 
 func _ready():
+	._ready()
 	anthem_system_node.connect('flag_start',self,'_on_flag_start')
 	anthem_system_node.connect('flag_done',self,'_on_flag_done')
 	state_machine.set_next_state(NormalState.new())
@@ -69,6 +70,7 @@ class GuiltyState extends MyState:
 	var flag_node
 	func _init(flag_node): self.flag_node = flag_node
 	func start():
+		me.is_guilty = true
 		run()
 	func run():
 		me.rotation = 0
@@ -85,3 +87,7 @@ class MyStateMachine extends StateMachine:
 onready var state_machine = MyStateMachine.new(self)
 func state():
 	return state_machine.state()
+
+var is_guilty = false
+func is_guilty():
+	return is_guilty

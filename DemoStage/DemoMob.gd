@@ -71,6 +71,7 @@ class GuiltyState extends MyState:
 	var flag_node
 	func _init(flag_node): self.flag_node = flag_node
 	func start():
+		me.is_guilty = true
 		run()
 	func run():
 		me.rotation = 0
@@ -87,3 +88,7 @@ class MyStateMachine extends StateMachine:
 onready var state_machine = MyStateMachine.new(self)
 func state():
 	return state_machine.state()
+
+var is_guilty = false
+func is_guilty():
+	return is_guilty

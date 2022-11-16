@@ -7,7 +7,9 @@ var move_speed = 200
 const ROTATION_EPSILON = 0.0001
 
 func _ready():
+	$PlayerEatMobExecuteCollisionLayer.set_meta('player_node_path',get_path())
 	game_base_node.connect('player_guilty',self,'_on_player_guilty')
+	game_base_node.connect('player_eat_mob',self,'_on_player_eat_mob')
 
 func _physics_process(delta):
 	# process move
@@ -49,6 +51,12 @@ func _on_player_guilty(player_node):
 	$BadAudio.play()
 	life -= 1
 	game_base_node.emit_signal('player_life_change',self)
+
+func _on_player_eat_mob(player_node,mob_node):
+	if player_node != self: return
+	$GoodAudio.play()
+	score += 1
+	game_base_node.emit_signal('player_score_change',self)
 
 export(NodePath) var game_base
 onready var game_base_node = get_node(game_base)

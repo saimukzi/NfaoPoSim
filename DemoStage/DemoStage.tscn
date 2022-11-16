@@ -20,6 +20,7 @@ position = Vector2( 489, 360 )
 script = ExtResource( 2 )
 map = NodePath("..")
 anthem_system = NodePath("../../AnthemSystem")
+game_node_path = NodePath("../..")
 
 [node name="Path2D" type="Path2D" parent="Game/Map/MobSpawner"]
 curve = SubResource( 1 )

@@ -86,8 +86,8 @@ debug_spawn={
 
 [layer_names]
 
-2d_physics/layer_1="player_eat_mod_display"
-2d_physics/layer_2="player_eat_mod_execute"
+2d_physics/layer_1="player_eat_mob_display"
+2d_physics/layer_2="player_eat_mob_execute"
 
 [physics]
 
