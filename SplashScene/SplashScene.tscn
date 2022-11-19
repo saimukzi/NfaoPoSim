@@ -6,7 +6,7 @@
 
 [node name="Developer Logo" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Developer Logo"]
+[node name="Developer" type="Sprite" parent="Developer Logo"]
 position = Vector2( 640, 360 )
 texture = ExtResource( 1 )
 
