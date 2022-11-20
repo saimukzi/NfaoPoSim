@@ -46,6 +46,12 @@ func _physics_process(delta):
 	else:
 		$PlayerEatMobExecuteCollisionLayer.monitorable = false
 
+	# force player die
+	if Input.is_action_just_pressed("debug_force_player_die"):
+		$BadAudio.play()
+		life = 0
+		game_base_node.emit_signal('player_life_change',self)
+
 func _on_player_guilty(player_node):
 	if player_node != self: return
 	$BadAudio.play()
