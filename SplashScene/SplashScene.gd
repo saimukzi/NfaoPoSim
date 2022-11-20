@@ -11,8 +11,8 @@ func _input(event):
 func is_next_event(event):
 	if event is InputEventKey and event.pressed:
 		return true
-	if event is InputEventMouseButton and event.pressed:
-		return true
+#	if event is InputEventMouseButton and event.pressed:
+#		return true
 	return false
 
 func start():
