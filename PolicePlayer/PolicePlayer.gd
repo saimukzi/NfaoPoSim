@@ -10,6 +10,7 @@ func _ready():
 	$PlayerEatMobExecuteCollisionLayer.set_meta('player_node_path',get_path())
 	game_base_node.connect('player_guilty',self,'_on_player_guilty')
 	game_base_node.connect('player_eat_mob',self,'_on_player_eat_mob')
+	game_base_node.connect('player_life_change',self,'_on_player_life_change')
 
 func _physics_process(delta):
 	# process move
@@ -63,6 +64,10 @@ func _on_player_eat_mob(player_node,mob_node):
 	$GoodAudio.play()
 	score += 1
 	game_base_node.emit_signal('player_score_change',self)
+
+func _on_player_life_change(player_node):
+	if player_node != self: return
+	queue_free()
 
 export(NodePath) var game_base
 onready var game_base_node = get_node(game_base)
