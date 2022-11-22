@@ -69,14 +69,23 @@ class FlagState extends MyState:
 
 class GuiltyState extends MyState:
 	var flag_node
+	var sec_remain
+	var gone = false
 	func _init(flag_node): self.flag_node = flag_node
 	func start():
 		me.is_guilty = true
-		run()
-	func run():
+		sec_remain = me.guilty_sec
 		me.rotation = 0
-		yield(me.get_tree().create_timer(me.guilty_sec), "timeout")
-		set_next_state(FlagState.new(flag_node))
+	func _physics_process(delta):
+		sec_remain -= delta
+		if sec_remain <= 0 and (not gone):
+			gone = true
+			set_next_state(FlagState.new(flag_node))
+#		run()
+#	func run():
+#		me.rotation = 0
+#		yield(me.get_tree().create_timer(me.guilty_sec), "timeout")
+#		set_next_state(FlagState.new(flag_node))
 	func _on_flag_done(flag_node):
 		set_next_state(NormalState.new())
 
