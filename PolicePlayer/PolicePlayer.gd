@@ -42,7 +42,7 @@ func _physics_process(delta):
 			game_base_node.emit_signal('player_guilty',self)
 
 	# process eat
-	if Input.is_action_pressed("game_eat"):
+	if Input.is_action_pressed("game_eat") and life > 0:
 		$PlayerEatMobExecuteCollisionLayer.monitorable = true
 	else:
 		$PlayerEatMobExecuteCollisionLayer.monitorable = false
@@ -67,6 +67,10 @@ func _on_player_eat_mob(player_node,mob_node):
 
 func _on_player_life_change(player_node):
 	if player_node != self: return
+	if life <= 0:
+		hide()
+
+func _on_BadAudio_finished():
 	if life <= 0:
 		queue_free()
 

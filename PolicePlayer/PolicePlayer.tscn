@@ -45,4 +45,6 @@ area_mask = 0
 stream = ExtResource( 6 )
 area_mask = 0
 
+[connection signal="finished" from="BadAudio" to="." method="_on_BadAudio_finished"]
+
 [editable path="Char"]
