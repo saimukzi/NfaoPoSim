@@ -41,9 +41,24 @@ class Idle extends MyState:
 	pass
 
 class FlagPrepare extends MyState:
+	var timer
+	var wait_time
+	var done = false
 	func start():
-		me.get_node('PrepareTimer').start(me.anthem_system_node.flag_prepare_sec)
+		timer = me.get_node('PrepareTimer')
+		wait_time = timer.wait_time
+		timer.start(me.anthem_system_node.flag_prepare_sec)
+	func _process(_delta):
+		if not done:
+			var pos = timer.time_left
+			pos /= wait_time
+			pos = clamp(pos,0,1)
+			# print('{time_left},{wait_time},{pos}'.format({'time_left':timer.time_left,'wait_time':wait_time,'pos':pos}))
+			me.update_flag(pos)
+		else:
+			me.update_flag(0)
 	func _on_PrepareTimer_timeout():
+		done = true
 		set_next_state(FlagUp.new())
 
 class FlagUp extends MyState:
