@@ -14,7 +14,8 @@ func _input(event):
 
 class GameState extends MyState:
 	func _on_Game_player_life_change(player_node):
-		set_next_state(GameOverState.new())
+		if player_node.life <= 0:
+			set_next_state(GameOverState.new())
 
 class GameOverState extends MyState:
 	func start():

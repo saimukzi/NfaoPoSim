@@ -67,7 +67,8 @@ func _on_player_eat_mob(player_node,mob_node):
 
 func _on_player_life_change(player_node):
 	if player_node != self: return
-	queue_free()
+	if life <= 0:
+		queue_free()
 
 export(NodePath) var game_base
 onready var game_base_node = get_node(game_base)
