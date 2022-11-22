@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 161, 800, 0, 0, 0, 0, 1200, 800 )
+"points": PoolVector2Array( 0, 0, 0, 0, 161, -80, 0, 0, 0, 0, 1200, -80 )
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -36,7 +36,7 @@ game_node_path = NodePath("../..")
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Game/Map/MobSpawner/Path2D"]
-position = Vector2( 161, 800 )
+position = Vector2( 161, -80 )
 
 [node name="FlagBase" parent="Game/Map" index="2" instance=ExtResource( 4 )]
 position = Vector2( 81, 360 )
