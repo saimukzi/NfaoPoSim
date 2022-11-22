@@ -1,0 +1,1 @@
+Manage stage design as tscn files
