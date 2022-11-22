@@ -1,15 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameBase/GameBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DemoStage/DemoMobSpawner.gd" type="Script" id=2]
+[ext_resource path="res://assets/Xolonium-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://GameBase/FlagBase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SplashScene/press_cont.png" type="Texture" id=5]
+[ext_resource path="res://DemoStage/DemoStage.gd" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 161, 800, 0, 0, 0, 0, 1200, 800 )
 }
 
+[sub_resource type="DynamicFont" id=2]
+size = 128
+outline_size = 8
+outline_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+font_data = ExtResource( 3 )
+
 [node name="DemoStage" type="Node"]
+script = ExtResource( 6 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 
@@ -31,5 +41,23 @@ position = Vector2( 161, 800 )
 [node name="FlagBase" parent="Game/Map" index="2" instance=ExtResource( 4 )]
 position = Vector2( 81, 360 )
 anthem_system = NodePath("../../AnthemSystem")
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+
+[node name="GameOverLabel" type="Label" parent="GameOver"]
+margin_top = 210.0
+margin_right = 1280.0
+margin_bottom = 510.0
+custom_fonts/font = SubResource( 2 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="PressCont" type="Sprite" parent="GameOver"]
+position = Vector2( 1044, 676 )
+texture = ExtResource( 5 )
+
+[connection signal="player_life_change" from="Game" to="." method="_on_Game_player_life_change"]
 
 [editable path="Game"]

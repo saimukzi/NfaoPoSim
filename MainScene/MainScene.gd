@@ -37,7 +37,18 @@ class TitleState extends MyState:
 		my_scene.connect('start_game',self,'on_start_game')
 		me.add_child(my_scene)
 	func on_start_game():
-		print('ZDFTKXFKCY')
+		set_next_state(GameState.new())
+	func end():
+		my_scene.queue_free()
+
+class GameState extends MyState:
+	var my_scene
+	func start():
+		my_scene = load("res://DemoStage/DemoStage.tscn").instance()
+		my_scene.connect("end",self,"on_game_end")
+		me.add_child(my_scene)
+	func on_game_end():
+		set_next_state(TitleState.new())
 	func end():
 		my_scene.queue_free()
 

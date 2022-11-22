@@ -15,18 +15,12 @@ _global_script_classes=[ {
 "path": "res://commons/Const.gd"
 }, {
 "base": "Reference",
-"class": "Global",
-"language": "GDScript",
-"path": "res://global/Global.gd"
-}, {
-"base": "Reference",
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://commons/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Const": "",
-"Global": "",
 "StateMachine": ""
 }
 
@@ -46,6 +40,10 @@ window/size/width=1280
 window/size/height=720
 window/size/resizable=false
 window/stretch/aspect="keep"
+
+[global]
+
+auto=false
 
 [gui]
 
