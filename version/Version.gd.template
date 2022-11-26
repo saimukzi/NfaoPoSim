@@ -1,0 +1,5 @@
+extends Node
+
+const TIMESTAMP = '${TIMESTAMP}'
+const GIT_HASH = '${GIT_HASH}'
+const GIT_CLEAN = ${GIT_CLEAN}

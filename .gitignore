@@ -13,3 +13,6 @@ data_*/
 # eclipse
 /.project
 /.settings
+
+# version
+/version/Version.gd
