@@ -51,6 +51,7 @@ window/stretch/aspect="keep"
 [global]
 
 auto=false
+debug=false
 
 [gui]
 
