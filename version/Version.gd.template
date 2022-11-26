@@ -1,5 +1,8 @@
 extends Node
 
+# Run ./prebuild.sh to update me
+
 const TIMESTAMP = '${TIMESTAMP}'
+const YYYYMMDDHHMMSS = '${YYYYMMDDHHMMSS}'
 const GIT_HASH = '${GIT_HASH}'
-const GIT_CLEAN = ${GIT_CLEAN}
+const GIT_CLEAN = '${GIT_CLEAN}'

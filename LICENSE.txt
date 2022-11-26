@@ -11,6 +11,10 @@ assets/anthem.ogg
 assets/flag.png
 - Draw by saimukzi@proton.me, WTFPL
 
+assets/NotoSansMono-Regular.ttf
+- https://fonts.google.com/noto/specimen/Noto+Sans+Mono
+- Google, Open Font License
+
 assets/London_Bridge_Is_Falling_Down.ogg (removed)
 - https://commons.wikimedia.org/wiki/File:London_Bridge_Is_Falling_Down.ogg
 - CambridgeBayWeather, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons

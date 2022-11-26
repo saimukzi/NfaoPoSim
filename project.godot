@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Runtime="*res://commons/Runtime.gd"
+Version="*res://version/Version.gd"
 
 [display]
 
