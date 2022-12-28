@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+# require gettext
+
 if [[ "$#" == "1" && "${1}" == "prod" ]];then
   TIMESTAMP=`date +%s`
   YYYYMMDDHHMMSS=`date -Iseconds`
@@ -28,4 +30,4 @@ export YYYYMMDDHHMMSS
 export GIT_HASH
 export GIT_CLEAN
 
-cat version/version.gd.template | envsubst > version/version.gd
+cat version/Version.gd.template | envsubst > version/Version.gd
